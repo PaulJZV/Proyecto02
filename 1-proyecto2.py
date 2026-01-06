@@ -4,7 +4,6 @@ import mysql.connector
 
     
 
-# URL = 'https://randomuser.me/api/?nat=es&results=100'
 URL = 'https://restcountries.com/v3.1/region/America'
 
 response = requests.get(URL)
@@ -15,17 +14,10 @@ if response.status_code == 200:
     rows = []
     for dic_user in data:
         nombre = dic_user['name']['common'] + ' / ' + dic_user['name']['official']
-        # pais = dic_user['location']['country']
         capital = dic_user['capital'][0]
-        # email = dic_user['region']
         region = dic_user['region']
-        # telefono = dic_user['phone']
         populacion = dic_user['population']
-        # print(nombre)
-        # print(capital)
-        # print(region)
-        # print(populacion)
-        # foto = dic_user['picture']['large']
+
         rows.append([nombre,capital,region,populacion])
         
     headers = ['Nombre','Capital','Region','Populacion']
